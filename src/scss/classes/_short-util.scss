@@ -1,0 +1,178 @@
+@use "../globals/" as g;
+@use "../util/" as u;
+@use "../mixin/" as m;
+
+/**
+ * Colors
+ */
+
+.bg-white {
+  background-color: hsl(var(--white));
+}
+.clr-white {
+  color: hsl(var(--white));
+}
+.bg-black {
+  background-color: hsl(var(--black));
+}
+/**
+ * Position
+ */
+.relative {
+  position: relative;
+}
+.absolute {
+  position: absolute;
+}
+/**
+ * ### With container
+ */
+.container {
+  --max-width: 1440px;
+  --container-padding: 1rem;
+  width: min(var(--max-width), 100% - (var(--container-padding) * 0));
+  margin-inline: auto;
+}
+/**
+ * ### Flex 
+ */
+.flex {
+  display: flex;
+}
+.flex-dir-col {
+  flex-direction: column;
+}
+.justify-cont-betw {
+  justify-content: space-between;
+}
+/**
+ * ### Grid 
+ */
+.grid-columns {
+  display: grid;
+  align-content: space-around;
+
+  @include u.breakpoint-up(small) {
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+  }
+}
+/**
+ * ### Gap 
+ */
+.gap-1 {
+  gap: g.$size-400;
+}
+.gap-2 {
+  gap: g.$size-600;
+}
+.gap-3 {
+  gap: g.$size-700;
+}
+/**
+ * Float
+ */
+.float-l {
+  float: left;
+}
+.float-r {
+  float: right;
+}
+/**
+ * ### Align items center 
+ */
+.align-itm-center {
+  align-items: center;
+}
+/**
+ * ### Justify content center , start
+ */
+.justify-cont-center {
+  justify-content: center;
+}
+.justify-cont-start {
+  justify-content: start;
+}
+/**
+ * ### Justify items center , start
+ */
+.justify-item-center {
+  justify-items: center;
+}
+.justify-items-start {
+  justify-items: start;
+}
+/**
+ * ### Text  center 
+ */
+.text-align-center {
+  text-align: center;
+}
+/**
+ * Flow -Creating an upper edge for all descendants except the first.
+ * inline style --> style="--flow-spacer: 1.5rem"
+ */
+:where(.flow :not(:first-child)) {
+  margin-top: var(--flow-spacer, 3em);
+}
+/**
+ * ### Margin Padding position
+ */
+.margin-bottom-500 {
+  margin-block-end: g.$size-500;
+}
+/**
+ * Padding top and bottom
+ */
+.padding-block-400 {
+  padding-block: g.$size-400;
+}
+.padding-block-500 {
+  padding-block: g.$size-500;
+}
+.padding-block-600 {
+  padding-block: g.$size-600;
+}
+.padding-block-700 {
+  padding-block: g.$size-700;
+}
+.padding-block-900 {
+  padding-block: g.$size-900;
+}
+.padding-lr-400 {
+  padding-inline: g.$size-400;
+}
+.padding-lr-500 {
+  padding-inline: g.$size-500;
+}
+
+.padding-lr-600 {
+  padding-inline: g.$size-600;
+}
+.padding-lr-800 {
+  padding-inline: g.$size-800;
+}
+/**
+ * ### Font Size
+ */
+.fs-400 {
+  font-size: g.$size-400;
+}
+.fs-600 {
+  font-size: g.$size-600;
+}
+.fs-700 {
+  font-size: g.$size-700;
+}
+//For menu button
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* added line */
+  border: 0;
+}

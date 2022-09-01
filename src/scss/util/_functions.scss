@@ -1,0 +1,21 @@
+@use "sass:math";
+
+@function rem($pixel) {
+  // pokud ma $pixel jednotky (px) tak vyhod chybu
+  // jinak repocet na rem ...Parametr deleno 16
+  @if math.is-unitless($pixel) {
+    @return math.div($pixel, 16) + rem;
+  } @else {
+    @error 'Do not use px units and other-->'  $pixel;
+  }
+}
+
+@function em($pixel) {
+    // pokud ma $pixel jednotky (px) tak vyhod chybu
+    // jinak repocet na rem ...Parametr deleno 16
+    @if math.is-unitless($pixel) {
+      @return math.div($pixel, 16) + em;
+    } @else {
+      @error 'Do not use px units and other-->'  $pixel;
+    }
+  }
