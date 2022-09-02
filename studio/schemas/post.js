@@ -33,6 +33,11 @@ export default {
       },
     },
     {
+      title: "Description",
+      name: "description",
+      type: "text",
+    },
+    {
       name: "categories",
       title: "Categories",
       type: "array",
@@ -47,6 +52,19 @@ export default {
       name: "body",
       title: "Body",
       type: "blockContent",
+    },
+    {
+      name: "tags",
+      type: "array",
+      description: "Tagy odděluj mezerou",
+      of: [
+        {
+          type: "string",
+        },
+      ],
+      options: {
+        layout: "tags",
+      },
     },
   ],
 

@@ -1,3 +1,67 @@
 @use "../globals/" as g;
 @use "../util/" as u;
 @use "../mixin/" as m;
+
+.cards-wrapper {
+  margin-left: 0;
+  @include u.breakpoint-up(small) {
+    margin-left: 200px;
+  }
+  h1 {
+    font-size: u.rem(60);
+  }
+}
+
+.cards {
+  display: grid;
+  grid-gap: 30px;
+  align-content: space-around;
+  @include u.breakpoint-up(tiny) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  @include u.breakpoint-up(small) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include u.breakpoint-up(large) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.card-post {
+  overflow: hidden;
+  img {
+    width: 100%;
+    transition: 0.25s;
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+  a {
+    text-decoration: none;
+  }
+  h3 {
+    font-size: u.rem(26);
+    color: hsl(var(--black));
+    font-weight: 700;
+    text-transform: capitalize;
+  }
+  p {
+    color: hsl(var(--black) / 0.6);
+    font-weight: 400;
+  }
+}
+p.post-tags {
+  color: hsl(var(--black) / 0.7);
+  font-size: u.rem(18);
+  font-weight: 500;
+  text-transform: capitalize;
+}
+.icon-wrapper {
+  display: none;
+  justify-content: space-around;
+  position: absolute;
+  width: 100%;
+  bottom: 20px;
+  @include u.breakpoint-up(small) {
+    display: flex;
+  }
+}

@@ -113,7 +113,7 @@
  * inline style --> style="--flow-spacer: 1.5rem"
  */
 :where(.flow :not(:first-child)) {
-  margin-top: var(--flow-spacer, 3em);
+  margin-top: var(--flow-spacer, 0.5em);
 }
 /**
  * ### Margin Padding position
@@ -124,6 +124,12 @@
 /**
  * Padding top and bottom
  */
+.padding-block-100 {
+  padding-block: g.$size-100;
+}
+ .padding-block-200 {
+  padding-block: g.$size-200;
+}
 .padding-block-400 {
   padding-block: g.$size-400;
 }

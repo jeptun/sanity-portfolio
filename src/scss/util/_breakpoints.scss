@@ -1,20 +1,18 @@
 @use "functions" as f;
 
-//320px,470px, 770px, 1000px, 1280px
+//420px, 770px, 1000px, 1280px
 $breakpoints-up: (
-  "tiny": f.em(320),
-  "smallest": f.em(470),
-  "small": f.em(840),
+  "tiny": f.em(420),
+  "small": f.em(770),
   "medium": f.em(1000),
   "large": f.em(1280),
 );
 
-//319.98px,469.98px, 779.98px, 999.98px, 1279.98px
+//419.98px, 779.98px, 999.98px, 1279.98px
 
 $breakpoints-down: (
-  "tiny": f.em(319.98),
-  "smallest": f.em(469.98),
-  "small": f.em(839.98),
+  "tiny": f.em(419.98),
+  "small": f.em(779.98),
   "medium": f.em(999.98),
   "large": f.em(1279.98),
 );

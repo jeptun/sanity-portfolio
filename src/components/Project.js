@@ -69,6 +69,7 @@ export default function Project() {
                       👉
                     </span>
                   </a>
+                  <span>{project.tags}</span>
                 </div>
               </article>
             ))}
