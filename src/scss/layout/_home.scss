@@ -1,0 +1,61 @@
+@use "../globals/" as g;
+@use "../util/" as u;
+@use "../mixin/" as m;
+
+.home-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  height: 100vh;
+  @include u.breakpoint-up(small) {
+    margin-left: 200px;
+  }
+}
+
+.hero {
+  display: grid;
+  place-items: center;
+  gap: u.rem(16);
+  margin-top: u.rem(64);
+  @include u.breakpoint-up(medium) {
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+  }
+}
+.home-img {
+  width: 250px;
+  height: auto;
+  border-radius: 100%;
+}
+
+.btn {
+  display: inline-flex;
+  border: 0;
+  padding: u.rem(16) u.rem(22);
+  text-decoration: none;
+  border: 2px solid hsl(var(--black));
+  border-radius: 100vmax;
+  margin-top: u.rem(16);
+  font-size: u.rem(16);
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  text-align: center;
+  transition: transform 250ms;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  color: hsl(var(--black));
+}
+.btn:hover {
+  transform: translateY(-3px);
+  //transform: scale(1.1);
+}
+.btn:focus {
+  outline: none;
+  outline-offset: -4px;
+}
+
+.btn:active {
+  transform: scale(0.99);
+}

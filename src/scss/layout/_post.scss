@@ -42,12 +42,15 @@
     font-size: u.rem(26);
     color: hsl(var(--black));
     font-weight: 700;
-    text-transform: capitalize;
+  }
+  h3::first-letter {
+    text-transform: uppercase;
   }
   p {
     color: hsl(var(--black) / 0.6);
     font-weight: 400;
-    font-size: u.rem(14);
+    font-size: u.rem(15);
+
   }
 }
 p.post-tags {

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import sanityClient from "../client.js";
+import colorChanger from "./func/colorChanger.js";
 
 export default function Post() {
   const [postData, setPost] = useState(null);
@@ -42,16 +43,19 @@ export default function Post() {
                     to={"/post/" + post.slug.current}
                     key={post.slug.current}
                   >
-                    <figure className="flow" key={index}>
+                    <figure key={index}>
                       <img
                         src={post.mainImage.asset.url}
                         alt={post.mainImage.alt}
                         className=""
                         loading="lazy"
+                        style={{
+                          background: colorChanger(),
+                        }}
                       />
                       <figcaption>
-                        <h3 className="">{post.title}</h3>
-                        <p className="post-tags">{post.tags}</p>
+                        <h3>{post.title}</h3>
+                        {/* <p className="post-tags">{post.tags} </p> */}
                         <p>{post.description}</p>
                       </figcaption>
                     </figure>

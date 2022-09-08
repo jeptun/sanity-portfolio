@@ -1,0 +1,12 @@
+@use "../globals/" as g;
+@use "../util/" as u;
+@use "../mixin/" as m;
+
+.about-article {
+  display: flex;
+  flex-direction: column;
+  margin-left: 0;
+  @include u.breakpoint-up(small) {
+    margin-left: 200px;
+  }
+}

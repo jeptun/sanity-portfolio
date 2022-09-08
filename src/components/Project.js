@@ -22,12 +22,10 @@ export default function Project() {
   }, []);
 
   return (
-    <main className="">
-      <section className="">
+    <main>
+      <section className="projet-container">
         <h1 className="">My Projects</h1>
-        <h2 className="">
-          Welcome to my projects page!
-        </h2>
+        <h2 className="">Welcome to my projects page!</h2>
         <section className="">
           {projectData &&
             projectData.map((project, index) => (
@@ -48,16 +46,12 @@ export default function Project() {
                     {new Date(project.date).toLocaleDateString()}
                   </span>
                   <span>
-                    <strong className="">Company</strong>:{" "}
-                    {project.place}
+                    <strong className="">Company</strong>: {project.place}
                   </span>
                   <span>
-                    <strong className="">Type</strong>:{" "}
-                    {project.projectType}
+                    <strong className="">Type</strong>: {project.projectType}
                   </span>
-                  <p className="">
-                    {project.description}
-                  </p>
+                  <p className="">{project.description}</p>
                   <a
                     href={project.link}
                     rel="noopener noreferrer"

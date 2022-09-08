@@ -12,6 +12,7 @@
   left: 0;
   top: 0;
   z-index: 99;
+
   @include u.breakpoint-up(small) {
     height: 100%;
     width: 200px;
@@ -30,21 +31,50 @@
 .links-wrapper {
   display: flex;
   flex-direction: row;
-
   @include u.breakpoint-up(small) {
     flex-direction: column;
   }
 }
 .nav-primary {
   justify-content: space-between;
+  position: relative;
+  z-index: 1;
 }
 .links-wrapper {
   align-self: baseline;
+  position: absolute;
+  background-color: hsl(var(--white));
+  width: 100%;
+  left: 0;
+  top: 104px;
+  z-index: -9;
+  transition: 0.5s;
+  border-top: 1px solid hsl(var(--black) / 0.1);
   @include u.breakpoint-up(small) {
     align-self: initial;
+    top: 116px;
+    border-top: 0;
   }
 }
-
+.expanded {
+  top: -100%;
+}
+.hamburger {
+  display: block;
+  width: 35px;
+  height: 35px;
+  background: transparent;
+  align-self: baseline;
+  outline: 0;
+  border: 0;
+  z-index: 2;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  @include u.breakpoint-up(small) {
+    display: none;
+  }
+}
 a.nav-link-active {
   font-size: u.rem(18);
   color: hsl(var(--black));
@@ -65,10 +95,14 @@ a.nav-link-active {
   }
 }
 .logo {
+  background-color: hsl(var(--white));
+  width: 100%;
   font-size: u.rem(28);
   color: hsl(var(--black));
   font-weight: 200;
   border-bottom: 0;
+  display: flex;
+  flex-direction: column;
   @include u.breakpoint-up(small) {
     font-size: u.rem(32);
     border-bottom: 1px solid hsl(var(--black) / 0.1);

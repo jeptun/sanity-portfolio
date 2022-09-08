@@ -28,6 +28,16 @@ export default {
       name: "mainImage",
       title: "Main image",
       type: "image",
+      description: "Maly obrázek 575x384",
+      options: {
+        hotspot: true,
+      },
+    },
+    {
+      name: "postImage",
+      title: "Post image",
+      type: "image",
+      description: "Velky obrázek",
       options: {
         hotspot: true,
       },
@@ -35,6 +45,7 @@ export default {
     {
       title: "Description",
       name: "description",
+      description: "Maximální délka 150 znaků",
       type: "text",
     },
     {
@@ -44,8 +55,7 @@ export default {
       of: [{ type: "reference", to: { type: "category" } }],
     },
     {
-      name: "publishedAt",
-      title: "Published at",
+      name: "date",
       type: "datetime",
     },
     {
@@ -65,6 +75,16 @@ export default {
       options: {
         layout: "tags",
       },
+    },
+    {
+      name: "prewlink",
+      title: "Prew link",
+      type: "url",
+    },
+    {
+      name: "githublink",
+      title: "Github link",
+      type: "url",
     },
   ],
 

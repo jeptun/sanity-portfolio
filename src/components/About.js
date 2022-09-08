@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import sanityClient from "../client.js";
 import imageUrlBuilder from "@sanity/image-url";
-import plumeria from "../plumeria.jpg";
 
 const builder = imageUrlBuilder(sanityClient);
 function urlFor(source) {
@@ -27,10 +26,9 @@ export default function About() {
   if (!author) return <div>Loading...</div>;
 
   return (
-    <main className="relative">
-      <img src={plumeria} alt="Plumeria Flower" className="" />
+    <main className="about-article ">
       <div className="">
-        <section className="">
+        <section className="flex">
           <img
             src={urlFor(author.authorImage).url()}
             className=""
@@ -38,8 +36,7 @@ export default function About() {
           />
           <div className="">
             <h1 className="">
-              Hey there. I'm{" "}
-              <span className="">{author.name}</span>
+              Hey there. I'm <span className="">{author.name}</span>
             </h1>
             <p className="">{author.bio}</p>
           </div>

@@ -9,8 +9,8 @@
 /**
  * ### Font family 
  */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
-$ff-primary: 'Inter', sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+$ff-primary: "Inter", sans-serif;
 
 /**
  * ### Size variables
@@ -24,6 +24,7 @@ $size-600: 2rem;
 $size-700: 3rem;
 $size-800: 4rem;
 $size-900: 5rem;
+$size-xl: 8rem;
 /**
  * ### Font weight
  */

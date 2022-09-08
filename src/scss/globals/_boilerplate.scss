@@ -19,6 +19,47 @@ body {
   // background-color: hsl(var(--white));
   background-color: hsl(var(--white));
 }
-p:not([class]) {
+
+h1:not([class]) {
+  margin-block-start: u.rem(16);
+  font-size: u.rem(46);
+  font-weight: 700;
   max-width: 45ch;
+}
+h2:not([class]) {
+  margin-block-start: u.rem(16);
+  font-size: u.rem(38);
+  font-weight: 600;
+  max-width: 45ch;
+}
+h3:not([class]) {
+  margin-block-start: u.rem(16);
+  font-size: u.rem(30);
+  font-weight: 500;
+  max-width: 45ch;
+}
+h4:not([class]) {
+  margin-block-start: u.rem(16);
+  font-size: u.rem(26);
+  font-weight: 500;
+  max-width: 45ch;
+}
+
+p:not([class]),
+blockquote:not([class]) {
+  margin-block-start: u.rem(8);
+  margin-block-end: u.rem(5);
+  max-width: 70ch;
+  font-size: u.rem(16);
+  padding-bottom: u.rem(20);
+}
+
+img:not([class]) {
+  margin: u.rem(8);
+  width: u.rem(320);
+  height: auto;
+  float: right;
+}
+ul:not([class]) {
+  margin-block-start: u.rem(16);
 }

@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import sanityClient from "../client.js";
 import imageUrlBuilder from "@sanity/image-url";
 import BlockContent from "@sanity/block-content-to-react";
+import { SocialIcon } from "react-social-icons";
+import colorChanger from "./func/colorChanger.js";
 
 const builder = imageUrlBuilder(sanityClient);
 function urlFor(source) {
@@ -26,7 +28,17 @@ export default function SinglePost() {
                     url
                 }
             },
+            postImage{
+              asset->{
+                  _id,
+                  url
+              }
+            },
+            tags,
+            date,
             body,
+            prewlink,
+            githublink,
             "name": author->name,
             "authorImage": author->image
         }`
@@ -38,34 +50,66 @@ export default function SinglePost() {
   if (!singlePost) return <div>Loading...</div>;
 
   return (
-    <main className="">
-      <article className="">
-        <header className="">
-          <div className="">
-            <div className="">
-              <h1 className="">
-                {singlePost.title}
-              </h1>
-              <div className="">
+    <main className="container">
+      <article className="singlepost-article padding-block-800 padding-lr-600">
+        <header className="singlepost-head">
+          <h1 className="singlepost-title">{singlePost.title}</h1>
+          <div className="flex gap-1">
+            {singlePost.tags ? (
+              singlePost.tags.map((item, index) => (
+                <div
+                  key={index}
+                  className="singlepost-tags"
+                  style={{ color: colorChanger() }}
+                >
+                  {item}
+                </div>
+              ))
+            ) : (
+              <div>No tags found!</div>
+            )}
+          </div>
+
+          <div className="stacked">
+            <div className="singlepost-subhead">
+              <div className="flex gap-1 align-itm-center">
                 <img
                   src={urlFor(singlePost.authorImage).url()}
                   alt={singlePost.name}
-                  className=""
+                  className="author-img"
+                  style={{ background: colorChanger() }}
                 />
-                <p className="">
-                  {singlePost.name}
-                </p>
+                <p className="author-name">{singlePost.name}</p>
+                <span className="singlepost-date">
+                  {new Date(singlePost.date).toLocaleDateString()}
+                </span>
+              </div>
+              <div className="flex gap-1 align-itm-center ">
+                <SocialIcon
+                  url={singlePost.prewlink}
+                  target="_blank"
+                  fgColor="#fff"
+                  bgColor="#3ba55d"
+                  style={{ height: 30, width: 30 }}
+                />
+                <SocialIcon
+                  url={singlePost.githublink}
+                  target="_blank"
+                  fgColor="#fff"
+                  bgColor="#5661f2"
+                  style={{ height: 30, width: 30 }}
+                />
               </div>
             </div>
+            <img
+              src={singlePost.postImage.asset.url}
+              alt={singlePost.title}
+              className="media"
+              style={{ background: colorChanger() }}
+            />
           </div>
-          <img
-            src={singlePost.mainImage.asset.url}
-            alt={singlePost.title}
-            className=""
-            style={{ height: "400px" }}
-          />
         </header>
-        <div className="">
+        <div className="singlepost-blockcontent">
           <BlockContent
             blocks={singlePost.body}
             projectId="f14mtbcp"

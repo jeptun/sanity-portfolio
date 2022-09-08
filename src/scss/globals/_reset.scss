@@ -47,8 +47,9 @@ svg {
   // object-fit: cover;
 }
 
-ul {
-  list-style-type: none;
+ul:not([class]) {
+  list-style-type:circle;
+  padding-left: 1rem;
 }
 
 table,
