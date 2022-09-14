@@ -76,14 +76,17 @@ export default {
         layout: "tags",
       },
     },
+
     {
       name: "prewlink",
       title: "Prew link",
+      description: "Link na ukázku projektu",
       type: "url",
     },
     {
       name: "githublink",
       title: "Github link",
+      description: "Link na repozitář",
       type: "url",
     },
   ],

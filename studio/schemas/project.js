@@ -26,14 +26,21 @@ export default {
       type: "string",
       options: {
         list: [
-          { value: "personal", title: "Personal" },
-          { value: "client", title: "Client" },
-          { value: "school", title: "School" },
+          { value: "openSource", title: "Open Source" },
+          { value: "dokumentace", title: "Dokumentace" },
+          { value: "demo", title: "Demo" },
+          { value: "clanek", title: "Článek" },
+          { value: "zdroj", title: "Zdroj" },
         ],
       },
     },
     {
       name: "link",
+      type: "url",
+    },
+    {
+      name: "logoLink",
+      title: "Logo link",
       type: "url",
     },
     {

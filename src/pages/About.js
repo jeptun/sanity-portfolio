@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import sanityClient from "../client.js";
 import imageUrlBuilder from "@sanity/image-url";
+import Loader from "../components/Loader.js";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import colorChanger from "../func/colorChanger.js";
 
 const builder = imageUrlBuilder(sanityClient);
 function urlFor(source) {
@@ -23,8 +26,7 @@ export default function About() {
       .catch(console.error);
   }, []);
 
-  if (!author) return <div>Loading...</div>;
-
+  if (!author) return <Loader />;
   return (
     <main className="about-article ">
       <div className="">
@@ -33,6 +35,15 @@ export default function About() {
             src={urlFor(author.authorImage).url()}
             className=""
             alt={author.name}
+          />
+
+          <LazyLoadImage
+            src={urlFor(author.authorImage).url()}
+            className=""
+            alt={author.name}
+            style={{
+              background: colorChanger(),
+            }}
           />
           <div className="">
             <h1 className="">

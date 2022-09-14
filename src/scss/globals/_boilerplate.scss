@@ -1,35 +1,24 @@
 @use "variables" as v;
 @use "../util/" as u;
 
-::selection {
-  background-color: hsl(var(--selection-bg));
-  color: hsl(var(--white));
-}
-
-::-moz-selection {
-  background-color: hsl(var(--selection-bg));
-  color: hsl(var(--white));
-}
-
 html {
   font-size: 100%;
   font-family: v.$ff-primary;
-}
-body {
-  // background-color: hsl(var(--white));
-  background-color: hsl(var(--white));
+  color: hsl(var(--black));
 }
 
+
+a {
+  color: hsl(var(--black));
+}
 h1:not([class]) {
   margin-block-start: u.rem(16);
   font-size: u.rem(46);
-  font-weight: 700;
   max-width: 45ch;
 }
 h2:not([class]) {
   margin-block-start: u.rem(16);
   font-size: u.rem(38);
-  font-weight: 600;
   max-width: 45ch;
 }
 h3:not([class]) {
@@ -45,8 +34,8 @@ h4:not([class]) {
   max-width: 45ch;
 }
 
-p:not([class]),
-blockquote:not([class]) {
+p:not([class])
+ {
   margin-block-start: u.rem(8);
   margin-block-end: u.rem(5);
   max-width: 70ch;
@@ -54,6 +43,14 @@ blockquote:not([class]) {
   padding-bottom: u.rem(20);
 }
 
+blockquote:not([class]){
+  margin-block-start: u.rem(8);
+  margin-block-end: u.rem(5);
+  max-width: 70ch;
+  font-size: u.rem(16);
+  padding-bottom: u.rem(20);
+  color: red;
+}
 img:not([class]) {
   margin: u.rem(8);
   width: u.rem(320);
@@ -62,4 +59,13 @@ img:not([class]) {
 }
 ul:not([class]) {
   margin-block-start: u.rem(16);
+}
+::selection {
+  background-color: hsl(var(--selection-bg));
+  color: hsl(var(--white));
+}
+
+::-moz-selection {
+  background-color: hsl(var(--selection-bg));
+  color: hsl(var(--white));
 }

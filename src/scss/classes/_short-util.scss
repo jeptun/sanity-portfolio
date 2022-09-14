@@ -152,7 +152,15 @@
   padding-block: g.$size-xl;
 }
 
-
+.padding-lr-100 {
+  padding-inline: g.$size-100;
+}
+.padding-lr-200 {
+  padding-inline: g.$size-200;
+}
+.padding-lr-300 {
+  padding-inline: g.$size-300;
+}
 .padding-lr-400 {
   padding-inline: g.$size-400;
 }

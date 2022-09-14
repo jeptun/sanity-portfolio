@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app)",
   "main": "package.json",
-  "author": "Kapehe <sarahkapehe@gmail.com>",
+  "author": "Josef <pepadosoudil@seznam.cz>",
   "license": "UNLICENSED",
   "scripts": {
     "start": "sanity start",

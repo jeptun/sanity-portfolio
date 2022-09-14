@@ -1,9 +1,9 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Home from "./components/Home";
-import About from "./components/About";
-import SinglePost from "./components/SinglePost";
-import Post from "./components/Post";
-import Project from "./components/Project";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import SinglePost from "./pages/SinglePost";
+import Post from "./pages/Post";
+import UsefulLinks from "./pages/UsefulLinks";
 import NavBar from "./components/NavBar";
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
         <Route component={About} path='/about' />
         <Route component={SinglePost} path='/post/:slug' />
         <Route component={Post} path='/post' />
-        <Route component={Project} path='/project' />
+        <Route component={UsefulLinks} path='/usefulLinks' />
       </Switch>
     </BrowserRouter>
   )

@@ -4,7 +4,11 @@ import sanityClient from "../client.js";
 import imageUrlBuilder from "@sanity/image-url";
 import BlockContent from "@sanity/block-content-to-react";
 import { SocialIcon } from "react-social-icons";
-import colorChanger from "./func/colorChanger.js";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+
+
+import colorChanger from "../func/colorChanger.js";
+import Loader from "../components/Loader.js";
 
 const builder = imageUrlBuilder(sanityClient);
 function urlFor(source) {
@@ -38,6 +42,12 @@ export default function SinglePost() {
             date,
             body,
             prewlink,
+            slider{
+              asset->{
+                _id,
+                url
+              }
+            },
             githublink,
             "name": author->name,
             "authorImage": author->image
@@ -47,14 +57,16 @@ export default function SinglePost() {
       .catch(console.error);
   }, [slug]);
 
-  if (!singlePost) return <div>Loading...</div>;
+  if (!singlePost) return <Loader />;
+
+//  console.log(singlePost.postImage.asset.url);
 
   return (
     <main className="container">
-      <article className="singlepost-article padding-block-800 padding-lr-600">
-        <header className="singlepost-head">
+      <article className="singlepost-article padding-block-900 padding-lr-600">
+        <aside className="singlepost-aside">
           <h1 className="singlepost-title">{singlePost.title}</h1>
-          <div className="flex gap-1">
+          <div className="singlepost-tags-wrapper">
             {singlePost.tags ? (
               singlePost.tags.map((item, index) => (
                 <div
@@ -70,14 +82,21 @@ export default function SinglePost() {
             )}
           </div>
 
-          <div className="stacked">
+          <div className="singlepost-container">
+            <LazyLoadImage
+              src={singlePost.postImage.asset.url}
+              alt={singlePost.title}
+              className="singlepost-container-image"
+            />
             <div className="singlepost-subhead">
               <div className="flex gap-1 align-itm-center">
-                <img
+                <LazyLoadImage
                   src={urlFor(singlePost.authorImage).url()}
                   alt={singlePost.name}
                   className="author-img"
-                  style={{ background: colorChanger() }}
+                  style={{
+                    background: colorChanger(),
+                  }}
                 />
                 <p className="author-name">{singlePost.name}</p>
                 <span className="singlepost-date">
@@ -101,21 +120,15 @@ export default function SinglePost() {
                 />
               </div>
             </div>
-            <img
-              src={singlePost.postImage.asset.url}
-              alt={singlePost.title}
-              className="media"
-              style={{ background: colorChanger() }}
-            />
           </div>
-        </header>
-        <div className="singlepost-blockcontent">
+        </aside>
+        <section className="singlepost-blockcontent">
           <BlockContent
             blocks={singlePost.body}
             projectId="f14mtbcp"
             dataset="production"
           />
-        </div>
+        </section>
       </article>
     </main>
   );
