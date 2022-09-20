@@ -1,3 +1,11 @@
 @use "../globals/" as g;
 @use "../util/" as u;
 @use "../mixin/" as m;
+
+.usefullLinks-title{
+    display: flex;
+    gap: u.rem(16);
+    padding: u.rem(8);
+    justify-content: space-between;
+    flex-wrap: wrap;
+}

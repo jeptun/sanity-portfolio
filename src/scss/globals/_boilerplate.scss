@@ -4,9 +4,7 @@
 html {
   font-size: 100%;
   font-family: v.$ff-primary;
-  color: hsl(var(--black));
 }
-
 
 a {
   color: hsl(var(--black));
@@ -34,28 +32,44 @@ h4:not([class]) {
   max-width: 45ch;
 }
 
-p:not([class])
- {
+p:not([class]) {
+  margin-block-start: u.rem(8);
+  margin-block-end: u.rem(5);
+  max-width: 70ch;
+  font-size: u.rem(18);
+  padding-bottom: u.rem(20);
+}
+
+blockquote:not([class]) {
   margin-block-start: u.rem(8);
   margin-block-end: u.rem(5);
   max-width: 70ch;
   font-size: u.rem(16);
   padding-bottom: u.rem(20);
 }
-
-blockquote:not([class]){
-  margin-block-start: u.rem(8);
-  margin-block-end: u.rem(5);
+code:not([class]) {
   max-width: 70ch;
-  font-size: u.rem(16);
-  padding-bottom: u.rem(20);
-  color: red;
+  font-size: u.rem(13);
+  font-family: monospace;
+  background-color: hsl(var(--black)/0.1);
+}
+em:not([class]) {
+  font-style: italic;
+  max-width: 70ch;
+  font-weight: 300;
+  font-size: u.rem(18);
+}
+strong:not([class]) {
+  font-weight: 700;
 }
 img:not([class]) {
   margin: u.rem(8);
   width: u.rem(320);
   height: auto;
   float: right;
+  margin-left: u.rem(16);
+  // border-left: 1px solid hsl(var(--black)/0.3);
+border-radius: u.rem(8);
 }
 ul:not([class]) {
   margin-block-start: u.rem(16);

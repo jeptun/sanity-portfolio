@@ -2,11 +2,28 @@
 @use "../util/" as u;
 @use "../mixin/" as m;
 
+
 .about-article {
   display: flex;
   flex-direction: column;
   margin-left: 0;
   @include u.breakpoint-up(small) {
     margin-left: 200px;
+  }
+}
+
+.hero {
+  --max-width: 1440px;
+  --container-padding: 1rem;
+  width: min(var(--max-width), 100% - (var(--container-padding) * 0));
+  margin-inline: auto;
+
+  display: grid;
+  place-items: center;
+  gap: u.rem(16);
+
+  @include u.breakpoint-up(medium) {
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
   }
 }

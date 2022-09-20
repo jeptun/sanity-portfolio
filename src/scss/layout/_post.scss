@@ -40,7 +40,7 @@
 }
 .card-post {
   overflow: hidden;
-  border: 1px solid hsl(var(--black) / 0.1);
+  // border: 1px solid hsl(var(--black) / 0.1);
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   img {
     width: 100%;
@@ -64,7 +64,7 @@
   p {
     color: hsl(var(--black) / 0.8);
     font-weight: 400;
-    font-size: u.rem(16);
+    font-size: u.rem(18);
   }
 }
 p.post-tags {

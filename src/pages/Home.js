@@ -2,10 +2,9 @@ import React, { useEffect, useState } from "react";
 import sanityClient from "../client.js";
 import { NavLink } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import mePhoto from "../img/ja.png";
 import meCompres from "../img/jacompr.png";
 import colorChanger from "../func/colorChanger.js";
-import Loader from "../components/Loader.js";
+import Loader from "../components/Loader.jsx";
 
 export default function Home() {
   const [author, setAuthor] = useState(null);
@@ -16,6 +15,8 @@ export default function Home() {
         `*[_type == "author"]{
           name,
           "bio": bio[0].children[0].text,
+          "authorImage": image.asset->url,
+          "description": description[0].children[0].text,
       }`
       )
       .then((data) => setAuthor(data[0]))
@@ -25,8 +26,8 @@ export default function Home() {
   if (!author) return <Loader />;
 
   return (
-    <main className="home-container  padding-lr-600">
-      <section className="container hero">
+    <main className="home-container padding-lr-600">
+      <section className="hero">
         <div className="hero-info">
           <h1>
             Ahoj, jmenuji se <span className="halfcolor">{author.name}.</span>{" "}
@@ -34,6 +35,7 @@ export default function Home() {
             <span className="halfcolor"> front-end</span> developer!
           </h1>
           <p>{author.bio}</p>
+          <p>{author.description}</p>
           <NavLink
             to="/post"
             className="btn"
@@ -43,15 +45,14 @@ export default function Home() {
           </NavLink>
         </div>
         <LazyLoadImage
-          src={mePhoto}
+          src={author.authorImage}
           alt={author.name}
           placeholderSrc={meCompres}
           className="hero-img"
-          style={{
-            background: colorChanger(),
-          }}
+         
         />
       </section>
+  
     </main>
   );
 }

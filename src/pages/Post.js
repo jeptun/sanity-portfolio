@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import sanityClient from "../client.js";
 import colorChanger from "../func/colorChanger.js";
-import Loader from "../components/Loader.js";
+import Loader from "../components/Loader.jsx";
 
 export default function Post() {
   const [postData, setPost] = useState(null);
@@ -51,12 +51,12 @@ export default function Post() {
     <main className="padding-block-600">
       <section className="cards-wrapper padding-block-900 padding-lr-600">
         <h1 className="">Projekty</h1>
-        <h2 className="padding-block-600">Welcome to my page of blog posts</h2>
+        <h2 className="padding-block-600">Na této stránce naleznete mé projekty</h2>
 
         <input
           className="search-input"
           type="text"
-          placeholder="search"
+          placeholder="Vyhledávání"
           onChange={(e) => searchItems(e.target.value)}
         />
 

@@ -5,11 +5,9 @@ import imageUrlBuilder from "@sanity/image-url";
 import BlockContent from "@sanity/block-content-to-react";
 import { SocialIcon } from "react-social-icons";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-
-
 import colorChanger from "../func/colorChanger.js";
-import Loader from "../components/Loader.js";
-
+import Loader from "../components/Loader.jsx";
+import ReactTooltip from "react-tooltip";
 const builder = imageUrlBuilder(sanityClient);
 function urlFor(source) {
   return builder.image(source);
@@ -48,6 +46,7 @@ export default function SinglePost() {
                 url
               }
             },
+            author,
             githublink,
             "name": author->name,
             "authorImage": author->image
@@ -59,7 +58,6 @@ export default function SinglePost() {
 
   if (!singlePost) return <Loader />;
 
-//  console.log(singlePost.postImage.asset.url);
 
   return (
     <main className="container">
@@ -105,19 +103,43 @@ export default function SinglePost() {
               </div>
               <div className="flex gap-1 align-itm-center ">
                 <SocialIcon
+                  data-tip
+                  data-for="previewLink"
                   url={singlePost.prewlink}
                   target="_blank"
                   fgColor="#fff"
                   bgColor="#3ba55d"
-                  style={{ height: 30, width: 30 }}
+                  style={{
+                    height: 30,
+                    width: 30,
+                    display: singlePost.prewlink ? "flex" : "none",
+                  }}
                 />
+                <ReactTooltip
+                  id="previewLink"
+                  type="error"
+                  textColor="#fff"
+                  backgroundColor="#3ba55d"
+                >
+                  <span>Živá ukázka</span>
+                </ReactTooltip>
                 <SocialIcon
+                  data-tip
+                  data-for="githubLink"
                   url={singlePost.githublink}
                   target="_blank"
                   fgColor="#fff"
                   bgColor="#5661f2"
                   style={{ height: 30, width: 30 }}
                 />
+                <ReactTooltip
+                  id="githubLink"
+                  type="error"
+                  textColor="#fff"
+                  backgroundColor="#5661f2"
+                >
+                  <span>Ukázka kódu</span>
+                </ReactTooltip>
               </div>
             </div>
           </div>

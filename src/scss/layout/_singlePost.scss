@@ -29,18 +29,18 @@
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   padding-block: 1rem;
   gap: 1rem;
   align-items: center;
   padding-inline: 1rem;
   margin-top: 5px;
-  background-color: hsl(var(--white));
 }
 
 .author-img {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
 }
 .singlepost-title {
@@ -63,7 +63,10 @@
   text-transform: capitalize;
 }
 .author-name {
-  font-size: u.rem(17);
+  font-weight: 700;
+  text-decoration: none;
+  font-size: u.rem(22);
+ 
 }
 .singlepost-date {
   font-size: u.rem(16);

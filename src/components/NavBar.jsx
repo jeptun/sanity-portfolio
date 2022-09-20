@@ -40,15 +40,14 @@ export default function NavBar() {
             activeClassName="nav-link-active"
             className="nav-link"
           >
-            Užitečné odkazy
+            O co se zajímám
           </NavLink>
-          <NavLink
-            to="/about"
-            activeClassName="nav-link-active"
-            className="nav-link"
+          <button
+            className="email-btn"
+            onClick={() => (window.location = "mailto:pepadosoudil@seznam.cz")}
           >
-            O mě
-          </NavLink>
+            E-Mail
+          </button>
         </div>
         <div className="icon-wrapper">
           <SocialIcon
