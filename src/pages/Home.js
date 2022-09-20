@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import sanityClient from "../client.js";
 import { NavLink } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import meCompres from "../img/jacompr.png";
 import colorChanger from "../func/colorChanger.js";
 import Loader from "../components/Loader.jsx";
 
@@ -47,7 +46,6 @@ export default function Home() {
         <LazyLoadImage
           src={author.authorImage}
           alt={author.name}
-          placeholderSrc={meCompres}
           className="hero-img"
          
         />
