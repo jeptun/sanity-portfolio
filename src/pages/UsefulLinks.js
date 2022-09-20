@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import sanityClient from "../client.js";
 import colorChanger from "../func/colorChanger.js";
-import { SocialIcon } from "react-social-icons";
 import Loader from "../components/Loader.jsx";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
